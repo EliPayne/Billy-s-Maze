@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         if(count >= 10)
         {
             winTextObject.SetActive(true);
+            SceneManager.LoadScene (1);
         }
     }
 
