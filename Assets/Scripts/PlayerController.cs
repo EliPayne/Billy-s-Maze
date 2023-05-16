@@ -5,14 +5,17 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
+
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
     public TextMeshProUGUI countText;
-    public GameObject winTextObject;
+    public GameObject winTextObject; 
 
     private Rigidbody rb;
     private int count;
+    private int sce = 0;
     private float movementX;
     private float movementY;
 
@@ -38,10 +41,14 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
+        if(count >= 10 && sce < 3)
+        {
+            sce = sce + 1;
+            SceneManager.LoadScene(sce);
+        }
         if(count >= 10)
         {
             winTextObject.SetActive(true);
-            SceneManager.LoadScene (1);
         }
     }
 
