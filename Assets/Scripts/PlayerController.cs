@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private int count;
-    private int sce = 0;
     private float movementX;
     private float movementY;
 
@@ -41,14 +40,21 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if(count >= 10 && sce < 3)
+        if(count >= 10 && TimerHolder.sce < 3)
         {
-            sce = sce + 1;
-            SceneManager.LoadScene(sce);
+            TimerHolder.sce = TimerHolder.sce + 1;
+            SceneManager.LoadScene(TimerHolder.sce);
         }
         if(count >= 10)
         {
             winTextObject.SetActive(true);
+        }
+    }
+    void timer()
+    {
+        if (TimerHolder.sce == 3 && count >= 10)
+        {
+            TimerHolder.timerActive = false;
         }
     }
 

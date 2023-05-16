@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUp_Size : MonoBehaviour
 {
     public GameObject pickupEffect;
-    public float multiplier = 1.5f;
+    public float multiplier = 1.3f;
     public float duration = 10f;
 
     void OnTriggerEnter(Collider other)
